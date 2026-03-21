@@ -1,17 +1,26 @@
 "use client";
 import { useCartStore } from "@/store/cartStore";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function CartPage() {
   const { cart, removeFromCart } = useCartStore();
   const router = useRouter();
+  const {cart1,loadCart} = useCartStore();
+
+
 
   const total = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+   useEffect(()=>{
+      loadCart();
+    },[]);
 
   return (
+
+   
     <div className="min-h-screen bg-black text-white p-6">
       
       <h1 className="text-3xl font-bold mb-8">🛒 Your Cart</h1>
