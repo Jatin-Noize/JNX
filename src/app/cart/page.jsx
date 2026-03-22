@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function CartPage() {
   const { cart, removeFromCart } = useCartStore();
   const router = useRouter();
-  const {cart1,loadCart} = useCartStore();
+  const {loadCart} = useCartStore();
 
 
 

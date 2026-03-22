@@ -22,7 +22,7 @@ export default function ProductsPage() {
     getProducts()
       .then(res => {
         console.log(res.data); // 👈 check structure
-        // FIX HERE
+        
         setProducts(res.data.products || res.data);
       })
       .catch(err => console.error(err))

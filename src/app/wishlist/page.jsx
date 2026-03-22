@@ -1,11 +1,17 @@
 "use client";
-import { useWishlistStore } from "@/store/wishlistStore";
+import { useWishlistStore } from "../../store/wishlistStore";
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function WishlistPage() {
   const { wishlist, removeFromWishlist } = useWishlistStore();
+    const {loadWishlist } = useWishlistStore();
 
-  // EMPTY STATE
+     useEffect(() => {
+    loadWishlist(); // ✅ IMPORTANT
+  }, []);
+
+  
   if (wishlist.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white text-center px-4">
